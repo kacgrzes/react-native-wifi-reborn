@@ -1,3 +1,6 @@
+**/android/.project
+**/android/.settings
+
 # OSX
 #
 .DS_Store
