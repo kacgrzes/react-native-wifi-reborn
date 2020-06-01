@@ -287,6 +287,7 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
             } catch (Exception e) {
                 Log.d("IoTWifi", "Failed to bind to Wifi: " + ssid);
                 callback.invoke();
+                return;
             }
         } else {
             callback.invoke(errorFromCode(FailureCodes.FAILED_TO_ADD_CONFIG));
@@ -317,8 +318,9 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                } else {
+                    callback.invoke(errorFromCode(FailureCodes.FAILED_TO_BIND_CONFIG));
                 }
-                callback.invoke(errorFromCode(FailureCodes.FAILED_TO_BIND_CONFIG));
             }
 
             @Override
